@@ -18,6 +18,7 @@ export const GlobalCss = createGlobalStyle`
 
 a {
   text-decoration:none;
+  color:${colors.white};
 }
 
 li {
@@ -34,4 +35,18 @@ color:${colors.white};
   width: 100%;
   margin:0 auto;
 }
+
+.title {
+  text-align:center;
+  margin:2rem;
+  font-size:1.8rem;
+}
+
+.products-container {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  align-items:center;
+  column-gap:1rem;
+}
+
 `;

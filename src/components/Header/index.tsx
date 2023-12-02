@@ -10,7 +10,9 @@ import { FaShoppingCart } from "react-icons/fa";
 const Header = () => {
   return (
     <S.Header>
-      <h1>Dev Shop</h1>
+      <Link href="/">
+        <h1>Dev Shop</h1>
+      </Link>
       <S.Cart>
         <Link href="/cart">
           <S.DetailCart>1</S.DetailCart>

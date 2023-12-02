@@ -1,7 +1,17 @@
+import ProductCard from "@/components/ProductCard";
+
 const Home = () => {
   return (
-    <main>
-      <h1>iniciando</h1>
+    <main className="container">
+      <h1 className="title">Produtos em Alta</h1>
+      <section className="products-container">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </section>
     </main>
   );
 };
