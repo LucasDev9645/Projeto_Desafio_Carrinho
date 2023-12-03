@@ -2,12 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { FaShoppingCart } from "react-icons/fa";
+
+import { RootReducer } from "../../store";
 
 import * as S from "./styles";
 
-import { FaShoppingCart } from "react-icons/fa";
-
 const Header = () => {
+  const items = useSelector((state: RootReducer) => state.carrinho.itens);
+
   return (
     <S.Header>
       <Link href="/">
@@ -15,7 +19,7 @@ const Header = () => {
       </Link>
       <S.Cart>
         <Link href="/cart">
-          <S.DetailCart>1</S.DetailCart>
+          {items.length > 0 && <S.DetailCart>{items.length}</S.DetailCart>}
           <FaShoppingCart size={30} color="#fff" />
         </Link>
       </S.Cart>

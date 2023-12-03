@@ -6,6 +6,7 @@ export const colors = {
   black: "#111111",
   white: "#FFFFFF",
   gray: "#3E3E3E",
+  blackGray: "#262626",
   red: "#BB4040",
 };
 
@@ -46,7 +47,6 @@ color:${colors.white};
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   align-items:center;
-  column-gap:1rem;
+  gap:1rem;
 }
-
 `;

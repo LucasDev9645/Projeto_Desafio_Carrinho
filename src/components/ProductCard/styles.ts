@@ -31,5 +31,10 @@ export const ContainerPrice = styled.div`
     align-items: center;
     border-radius: 0.3rem;
     opacity: 0.7;
+    border: 2px solid transparent;
+
+    &:hover {
+      border: 2px solid ${colors.red};
+    }
   }
 `;
