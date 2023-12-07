@@ -1,16 +1,28 @@
 "use client";
 
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Image from "next/image";
 
-import { ProductProps } from "../ProductCard";
+import { adicionarCarrinho, removerCarrinho } from "../../store/reducers/cart";
+import { RootReducer } from "@/store";
 
 import * as S from "./styles";
 
-interface DataProps {
-  data: ProductProps;
-}
-
 const ProductCardCart = ({ data }: DataProps) => {
+  const dispatch = useDispatch();
+  const items = useSelector((state: RootReducer) => state.carrinho.itens);
+
+  const carrinhoItem = items.find((item) => item.id === data.id);
+
+  const handleAdicionarCarrinho = () => {
+    dispatch(adicionarCarrinho(data));
+  };
+
+  const handleRemoverCarrinho = () => {
+    dispatch(removerCarrinho(data.id));
+  };
+
   return (
     <section className="container">
       <S.ProductCardCartContainer>
@@ -21,15 +33,22 @@ const ProductCardCart = ({ data }: DataProps) => {
           height={140}
         />
         <p>
-          <strong>Preço: {data.price}</strong>
+          <strong>Preço: {data.price.toFixed(2)}</strong>
         </p>
         <S.ButtonsContainer>
-          <button>-</button>
-          <span>2</span>
-          <button>+</button>
+          <button onClick={handleRemoverCarrinho} type="button">
+            -
+          </button>
+          <span>{carrinhoItem?.quantidade || 0}</span>
+          <button onClick={handleAdicionarCarrinho} type="button">
+            +
+          </button>
         </S.ButtonsContainer>
         <p>
-          <strong>SubTotal: R$ 5.200,00</strong>
+          <strong>
+            SubTotal: R$
+            {Number(data.price * (carrinhoItem?.quantidade || 0)).toFixed(2)}
+          </strong>
         </p>
       </S.ProductCardCartContainer>
     </section>

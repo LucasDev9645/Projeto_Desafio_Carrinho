@@ -7,7 +7,7 @@ export const ContainerProductCard = styled.section`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  max-width: 20rem;
+  max-width: 22rem;
   height: 20rem;
 `;
 
@@ -23,7 +23,7 @@ export const ContainerPrice = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  span {
+  button {
     background-color: ${colors.black};
     padding: 0.5rem;
     display: flex;
@@ -32,6 +32,7 @@ export const ContainerPrice = styled.div`
     border-radius: 0.3rem;
     opacity: 0.7;
     border: 2px solid transparent;
+    cursor: pointer;
 
     &:hover {
       border: 2px solid ${colors.red};

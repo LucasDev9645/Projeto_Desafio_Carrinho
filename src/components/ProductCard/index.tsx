@@ -1,29 +1,18 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa";
 
 import { useDispatch } from "react-redux";
 import { adicionarCarrinho } from "../../store/reducers/cart";
 
+import { colors } from "@/app/styles/globalStyles";
 import * as S from "./styles";
-
-export type ProductProps = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  cover: string;
-};
-
-interface DataProps {
-  data: ProductProps;
-}
 
 const ProductCard = ({ data }: DataProps) => {
   const dispatch = useDispatch();
+
   return (
     <S.ContainerProductCard>
       <Image
@@ -35,15 +24,10 @@ const ProductCard = ({ data }: DataProps) => {
       <S.ProductTitle>{data.title}</S.ProductTitle>
       <S.ContainerPrice>
         <p>
-          <strong>R$ {data.price}</strong>
+          <strong>R$ {data.price.toFixed(2)}</strong>
         </p>
-
         <button onClick={() => dispatch(adicionarCarrinho(data))} type="button">
-          <Link href="/cart">
-            <span>
-              <FaCartPlus size={20} />
-            </span>
-          </Link>
+          <FaCartPlus size={20} color={colors.white} />
         </button>
       </S.ContainerPrice>
     </S.ContainerProductCard>

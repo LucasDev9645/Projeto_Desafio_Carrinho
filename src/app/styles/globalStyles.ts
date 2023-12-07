@@ -26,9 +26,13 @@ li {
   list-style:none;
 }
 
+button {
+  border: none;
+}
+
 body {
-background-color:${colors.gray};
-color:${colors.white};
+background-color:${colors.white};
+color:${colors.black};
 }
 
 .container {

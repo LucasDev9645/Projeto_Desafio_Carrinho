@@ -10,7 +10,7 @@ const Cart = () => {
   const items = useSelector((state: RootReducer) => state.carrinho.itens);
 
   const amount = items.reduce((acc, item) => {
-    acc += item.price;
+    acc += item.price * (item.quantidade || 1);
     return acc;
   }, 0);
 
@@ -23,7 +23,7 @@ const Cart = () => {
         ))}
       </section>
       {amount > 0 ? (
-        <h3>Total: R$ {amount}</h3>
+        <h3>Total: R$ {amount.toFixed(2)}</h3>
       ) : (
         <h3>Seu carrinho está vazio!</h3>
       )}

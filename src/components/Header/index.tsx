@@ -7,6 +7,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import { RootReducer } from "../../store";
 
+import { colors } from "@/app/styles/globalStyles";
 import * as S from "./styles";
 
 const Header = () => {
@@ -20,7 +21,7 @@ const Header = () => {
       <S.Cart>
         <Link href="/cart">
           {items.length > 0 && <S.DetailCart>{items.length}</S.DetailCart>}
-          <FaShoppingCart size={30} color="#fff" />
+          <FaShoppingCart size={30} color={colors.white} />
         </Link>
       </S.Cart>
     </S.Header>
